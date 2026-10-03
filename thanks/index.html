@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Благодарим Ви · If Sugar Photography</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Абонатите на If Sugar Photography първи научават за новите сезонни фотосесии, имат предимство при избора на модели и получават отстъпки само за тях.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://signup.ifsugar.studio/">
+<meta property="og:title" content="Бюлетин на If Sugar Photography">
+<meta property="og:description" content="Първи научавате за новите сезонни фотосесии, предимство при избора на модели и отстъпки само за абонати.">
+<meta property="og:image" content="https://signup.ifsugar.studio/logo.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
+<style>
+  /* If Sugar Photography design system: white ground, warm bands, ink text, one caramel accent, pill buttons */
+  :root {
+    --surface: #ffffff;
+    --surface-warm: #f3f2f0;
+    --ink: #1e1e1e;
+    --caramel: #aa8d74;
+    --on-caramel: #ffffff;
+    --stone: #a9a49e;
+    --error: #a33a3a;
+    --font-display: Forum, Georgia, serif;
+    --font-sans: Roboto, Helvetica, Arial, sans-serif;
+    --space-gutter: 25px;
+    --space-section: 50px;
+    --space-button-y: 18px;
+    --space-button-x: 34px;
+    --radius-pill: 100px;
+    --content-width: 768px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--surface);
+    color: var(--ink);
+    font: 400 14px/21px var(--font-sans);
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .column { max-width: var(--content-width); margin: 0 auto; padding: 0 var(--space-gutter); }
+
+  header { padding: var(--space-section) 0; text-align: center; }
+  header a { display: inline-block; }
+  header img { display: block; height: 40px; width: auto; }
+
+  .intro { background: var(--surface-warm); padding: var(--space-section) 0; text-align: center; }
+  h1 {
+    font: 400 36px/39.6px var(--font-display);
+    letter-spacing: .72px;
+    margin: 0 0 24px;
+  }
+  .intro p { margin: 0 auto 14px; max-width: 600px; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .perks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 36px 0 0;
+  }
+  .perks li { text-align: center; }
+  .perks li::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--caramel);
+    margin: 0 auto 14px;
+  }
+  .perks h2 {
+    font: 700 12px/18px var(--font-sans);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .perks p { margin: 0; }
+
+  .signup { padding: var(--space-section) 0; }
+  form { max-width: 600px; margin: 0 auto; }
+  .row { display: flex; gap: 12px; }
+  input[type=email] {
+    flex: 1;
+    min-width: 0;
+    height: 56px;
+    padding: 0 26px;
+    font: 400 14px/21px var(--font-sans);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--stone);
+    border-radius: var(--radius-pill);
+  }
+  input[type=email]::placeholder { color: #6f6a64; }
+  input[aria-invalid=true] { border-color: var(--error); }
+  .is-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font: 400 12px/18px var(--font-sans);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: var(--space-button-y) var(--space-button-x);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--caramel);
+    background: var(--caramel);
+    color: var(--on-caramel);
+    cursor: pointer;
+    transition: opacity .2s;
+    white-space: nowrap;
+  }
+  .is-button:hover { opacity: .85; }
+  .is-button[disabled] { opacity: .6; cursor: default; }
+  .error { display: none; color: var(--error); margin: 10px 26px 0; }
+  .error.show { display: block; }
+  .consent { font-size: 12px; line-height: 18px; text-align: center; margin: 20px auto 0; max-width: 520px; }
+  .consent a, footer .footer-content a { color: var(--caramel); }
+  /* the field robots fill in and people never see (Mailchimp's own spam check) */
+  .hp { position: absolute; left: -5000px; }
+  .center { text-align: center; }
+  a.is-button { text-decoration: none; }
+
+  /* the same footer as ifsugar.studio */
+  footer { padding: var(--space-section) 0 18px; text-align: center; font-size: 12px; line-height: 18px; }
+  .social-links { list-style: none; margin: 0 0 25px; padding: 0; font-size: 28px; line-height: 42px; }
+  .social-links li { display: inline-block; margin: 0 7px; }
+  .social-links a { color: var(--ink); text-decoration: none; }
+  .social-links a:hover { opacity: .7; }
+  footer p { margin: 0; }
+
+  @media (max-width: 600px) {
+    header { padding: 32px 0; }
+    h1 { font-size: 28px; line-height: 32px; }
+    .row { flex-direction: column; }
+    input[type=email] { flex: none; width: 100%; }
+    .is-button { width: 100%; }
+    .perks { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a href="https://ifsugar.studio/" aria-label="If Sugar Photography — към сайта">
+      <img src="/logo.png" alt="If Sugar Photography" width="418" height="144">
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="column">
+        <h1>Благодарим Ви!</h1>
+        <p>Вече сте абонат на If&nbsp;Sugar Photography. Ще Ви пишем, когато обявяваме нови сезонни фотосесии, търсим модели за представяне на нови декори, сетове или визии, или имаме отстъпки само за абонати.</p>
+      </div>
+    </section>
+    <section class="signup">
+      <div class="column center">
+        <a class="is-button" href="https://ifsugar.studio/">Към сайта</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="column">
+      <ul class="social-links">
+        <li><a href="https://www.instagram.com/ifsugar.photography/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://wa.me/359896626321" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+        <li><a href="https://www.facebook.com/IfSugarPhotography" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+      <div class="footer-content">
+        <p><b>If&nbsp;Sugar Photography</b> | © 2027 | Детски и семеен фотограф | <a href="https://ifsugar.studio/terms-and-conditions">Общи условия</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
