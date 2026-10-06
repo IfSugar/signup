@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бюлетин · If Sugar Photography</title>
+<meta name="description" content="Абонатите на If Sugar Photography първи научават за новите сезонни фотосесии, имат предимство при избора на модели и получават отстъпки само за тях.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://signup.ifsugar.studio/">
+<meta property="og:title" content="Бюлетин на If Sugar Photography">
+<meta property="og:description" content="Първи научавате за новите сезонни фотосесии, предимство при избора на модели и отстъпки само за абонати.">
+<meta property="og:image" content="https://signup.ifsugar.studio/logo.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@400;500;700&display=swap">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<style>
+  /* If Sugar Photography design system: white ground, warm bands, ink text, one caramel accent, pill buttons */
+  :root {
+    --surface: #ffffff;
+    --surface-warm: #f3f2f0;
+    --ink: #1e1e1e;
+    --caramel: #aa8d74;
+    --on-caramel: #ffffff;
+    --stone: #a9a49e;
+    --error: #a33a3a;
+    --font-display: Forum, Georgia, serif;
+    --font-sans: Roboto, Helvetica, Arial, sans-serif;
+    --space-gutter: 25px;
+    --space-section: 50px;
+    --space-button-y: 18px;
+    --space-button-x: 34px;
+    --radius-pill: 100px;
+    --content-width: 768px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--surface);
+    color: var(--ink);
+    font: 400 14px/21px var(--font-sans);
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .column { max-width: var(--content-width); margin: 0 auto; padding: 0 var(--space-gutter); }
+
+  header { padding: var(--space-section) 0; text-align: center; }
+  header a { display: inline-block; }
+  header img { display: block; height: 40px; width: auto; }
+
+  .intro { background: var(--surface-warm); padding: var(--space-section) 0; text-align: center; }
+  h1 {
+    font: 400 36px/39.6px var(--font-display);
+    letter-spacing: .72px;
+    margin: 0 0 24px;
+  }
+  .intro p { margin: 0 auto 14px; max-width: 600px; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .perks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 36px 0 0;
+  }
+  .perks li { text-align: center; }
+  .perks li::before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--caramel);
+    margin: 0 auto 14px;
+  }
+  .perks h2 {
+    font: 700 12px/18px var(--font-sans);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .perks p { margin: 0; }
+
+  .signup { padding: var(--space-section) 0; }
+  form { max-width: 600px; margin: 0 auto; }
+  .row { display: flex; gap: 12px; }
+  input[type=email] {
+    flex: 1;
+    min-width: 0;
+    height: 56px;
+    padding: 0 26px;
+    font: 400 14px/21px var(--font-sans);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--stone);
+    border-radius: var(--radius-pill);
+  }
+  input[type=email]::placeholder { color: #6f6a64; }
+  input[aria-invalid=true] { border-color: var(--error); }
+  .is-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font: 400 12px/18px var(--font-sans);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: var(--space-button-y) var(--space-button-x);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--caramel);
+    background: var(--caramel);
+    color: var(--on-caramel);
+    cursor: pointer;
+    transition: opacity .2s;
+    white-space: nowrap;
+  }
+  .is-button:hover { opacity: .85; }
+  .is-button[disabled] { opacity: .6; cursor: default; }
+  .error { display: none; color: var(--error); margin: 10px 26px 0; }
+  .error.show { display: block; }
+  .consent { font-size: 12px; line-height: 18px; text-align: center; margin: 20px auto 0; max-width: 520px; }
+  .consent a, footer .footer-content a { color: var(--caramel); }
+  /* the field robots fill in and people never see (Mailchimp's own spam check) */
+  .hp { position: absolute; left: -5000px; }
+  .robot-check { display: flex; justify-content: center; margin-top: 14px; }
+  .robot-check:empty { display: none; }
+  .done { max-width: 600px; margin: 0 auto; text-align: center; }
+  .done h2 { font: 400 28px/32px var(--font-display); letter-spacing: .56px; margin: 0 0 14px; }
+  .done p { margin: 0 0 24px; }
+  .done[hidden] { display: none; }
+  a.is-button { text-decoration: none; }
+
+  /* the same footer as ifsugar.studio */
+  footer { padding: var(--space-section) 0 18px; text-align: center; font-size: 12px; line-height: 18px; }
+  .social-links { list-style: none; margin: 0 0 25px; padding: 0; font-size: 28px; line-height: 42px; }
+  .social-links li { display: inline-block; margin: 0 7px; }
+  .social-links a { color: var(--ink); text-decoration: none; }
+  .social-links a:hover { opacity: .7; }
+  /* the footer's icons: Font Awesome Free 6 brand glyphs (fontawesome.com, CC BY 4.0), drawn in the page, sized like the icon font */
+  .social-links svg.fa { display: inline-block; height: 1em; vertical-align: -0.125em; overflow: visible; }
+  .social-links svg.w14 { width: 0.875em; }
+  .social-links svg.w16 { width: 1em; }
+  footer p { margin: 0; }
+
+  @media (max-width: 600px) {
+    header { padding: 32px 0; }
+    h1 { font-size: 28px; line-height: 32px; }
+    .row { flex-direction: column; }
+    input[type=email] { flex: none; width: 100%; }
+    .is-button { width: 100%; }
+    .perks { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a href="https://ifsugar.studio/" aria-label="If Sugar Photography — към сайта">
+      <img src="/logo.png" alt="If Sugar Photography" width="418" height="144">
+    </a>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="column">
+        <h1>Не искате да изпускате нашите бъдещи предложения?</h1>
+        <p>Ако в момента не планирате фотосесия, но не искате да пропуснете следващата, запишете се. Пишем рядко и само когато имаме нещо специално за Вас.</p>
+        <ul class="perks">
+          <li>
+            <h2>Първи научавате за новите сезонни фотосесии</h2>
+            <p>Обявяваме ги първо по имейл, така че можете да изберете най-търсените часове, преди да се заемат.</p>
+          </li>
+          <li>
+            <h2>Предимство при избора на модели</h2>
+            <p>Когато търсим модели за представяне на нови декори, сетове или визии, абонатите имат предимство.</p>
+          </li>
+          <li>
+            <h2>Отстъпки само за абонати</h2>
+            <p>Специални цени, които ще получавате само по имейл.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="signup">
+      <div class="column">
+        <form id="signup" action="https://studio.us13.list-manage.com/subscribe/post?u=9eacdaf62c8bcd85258f453cf&amp;id=006b4537f7" method="post" novalidate>
+          <div class="row">
+            <input type="email" id="email" name="EMAIL" placeholder="Вашият имейл" aria-label="Вашият имейл" autocomplete="email" inputmode="email" required aria-describedby="email-error">
+            <button type="submit" id="submit" class="is-button">Запишете ме</button>
+          </div>
+          <p class="error" id="email-error" role="alert">Моля, въведете валиден имейл адрес.</p>
+          <div class="cf-turnstile robot-check" data-sitekey="0x4AAAAAAFMl6qcyrr5_tDeM" data-appearance="interaction-only" data-language="bg"></div>
+          <div class="hp" aria-hidden="true"><input type="text" id="hp" name="b_9eacdaf62c8bcd85258f453cf_006b4537f7" tabindex="-1" value="" autocomplete="off"></div>
+          <p class="consent">Записвайки се, се съгласявате да получавате имейли от If&nbsp;Sugar Photography. Можете да се отпишете по всяко време с връзката в края на всеки имейл. <a href="https://ifsugar.studio/terms-and-conditions">Общи условия</a></p>
+        </form>
+        <div class="done" id="done" hidden tabindex="-1">
+          <h2 id="done-title">Благодарим Ви!</h2>
+          <p id="done-text">Вече сте абонат на If&nbsp;Sugar Photography. Ще Ви пишем, когато обявяваме нови сезонни фотосесии, търсим модели за представяне на нови декори, сетове или визии, или имаме отстъпки само за абонати.</p>
+          <a class="is-button" href="https://ifsugar.studio/">Към сайта</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="column">
+      <ul class="social-links">
+        <li><a href="https://www.instagram.com/ifsugar.photography/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="fa w14" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a></li>
+        <li><a href="https://wa.me/359896626321" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg class="fa w14" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/IfSugarPhotography" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg class="fa w16" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a></li>
+      </ul>
+      <div class="footer-content">
+        <p><b>If&nbsp;Sugar Photography</b> | © 2027 | Детски и семеен фотограф | <a href="https://ifsugar.studio/terms-and-conditions">Общи условия</a></p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Sign-up through the studio's gatekeeper (Cloudflare), which adds the address to Mailchimp: the visitor stays on this
+  // page. If the gatekeeper can't be reached, the form goes to Mailchimp's own page instead, so nobody is lost.
+  (function () {
+    var GATE = "https://ifsugar-gate.ifsugar.workers.dev/subscribe";
+    var form = document.getElementById("signup");
+    var email = document.getElementById("email");
+    var err = document.getElementById("email-error");
+    var btn = document.getElementById("submit");
+    var label = btn.textContent;
+    var done = document.getElementById("done");
+    var MSG = {
+      invalid: "Моля, въведете валиден имейл адрес.",
+      robot: "Моля, потвърдете, че не сте робот, и опитайте отново.",
+      compliance: "Този адрес не може да бъде записан оттук. Пишете ни и ще го добавим.",
+      other: "Нещо се обърка. Моля, опитайте отново след малко."
+    };
+    var ok = function (v) { return /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v.trim()); };
+    var showError = function (text) {
+      err.textContent = text;
+      err.classList.add("show");
+      email.setAttribute("aria-invalid", "true");
+      email.focus();
+    };
+    // Cloudflare's robot check answers in the background a moment after the page opens: wait for it a little
+    var robotToken = function (ms) {
+      return new Promise(function (resolve) {
+        var start = Date.now();
+        (function poll() {
+          var t = window.turnstile && window.turnstile.getResponse ? window.turnstile.getResponse() : "";
+          if (t || Date.now() - start > ms) resolve(t || "");
+          else setTimeout(poll, 200);
+        })();
+      });
+    };
+    var busy = function (on) { btn.disabled = on; btn.textContent = on ? "Изпращаме…" : label; };
+    var finish = function (result) {
+      if (result === "already") {
+        document.getElementById("done-title").textContent = "Вече сте абонат!";
+        document.getElementById("done-text").textContent = "Този адрес вече получава нашите имейли. Благодарим Ви!";
+      } else if (result === "confirm") {
+        document.getElementById("done-title").textContent = "Почти готово!";
+        document.getElementById("done-text").textContent = "Изпратихме Ви имейл. Моля, потвърдете абонамента от линка в него.";
+      }
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
+    };
+    email.addEventListener("input", function () {
+      if (ok(email.value)) { err.classList.remove("show"); email.removeAttribute("aria-invalid"); }
+    });
+    form.addEventListener("submit", function (e) {
+      email.value = email.value.trim();
+      if (!ok(email.value)) { e.preventDefault(); showError(MSG.invalid); return; }
+      if (!window.fetch) { busy(true); return; } // a very old browser: Mailchimp's page
+      e.preventDefault();
+      busy(true);
+      robotToken(3000).then(function (token) { return fetch(GATE, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ email: email.value, token: token, website: document.getElementById("hp").value })
+      }); }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, body: body }; });
+      }).then(function (r) {
+        if (r.status === 200 && r.body.result) { finish(r.body.result); return; }
+        busy(false);
+        if (window.turnstile) window.turnstile.reset();
+        var m = r.body.message;
+        if (m === "invalid-email") showError(MSG.invalid);
+        else if (m === "robot-check") showError(MSG.robot);
+        else if (m === "compliance") showError(MSG.compliance);
+        else if (r.status >= 500) form.submit(); // the gatekeeper or Mailchimp failed: Mailchimp's own page takes it
+        else showError(MSG.other);
+      }).catch(function () {
+        form.submit(); // no connection to the gatekeeper: Mailchimp's own page takes it
+      });
+    });
+    // back from Mailchimp's page with the browser's Back button: the button works again
+    window.addEventListener("pageshow", function () { busy(false); });
+  })();
+</script>
+</body>
+</html>
